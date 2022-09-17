@@ -1,0 +1,23 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content">
+	<div class="setting_address_a">
+	<div th:replace="menu :: menuFragment"></div>
+		<div class="no2">
+		<hr>
+			<ul>
+				<li>
+					<b>등록된배송지</b>
+				</li>
+				<a th:href="@{/account/setaddressForm}" class="inner_no2">추가</a>
+			</ul>
+			
+		</div>	
+		<hr>
+		<div class="no3">
+			<ul>
+				등록된 주소가 없습니다.				
+			</ul>
+		  </div>	
+	</div>
+</div>
+</html>

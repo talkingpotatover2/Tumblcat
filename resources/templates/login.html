@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/css/login.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="/js/login.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- 합쳐지고 최소화된 최신 CSS --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    
+    <!-- 부가적인 테마 --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 --> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body id="yj" class="background container">
+    <div class="row">
+        <div class="login-form">
+            <div class="login-content col-md-5">
+                <h2 class="display-1"><a th:href="@{/project/list}" style="font-family: 'Ms Madi';">tumblcat</a></h2>
+                <div class="header">
+                    <div class="title">
+                        로그인하고<br>
+                    </div>
+                    <div>
+                        <b>세상에서 하나뿐인 <br>특별한 프로젝트를 발견해보세요</b>
+                    </div>
+                </div>
+
+                
+                <div class="content">
+                    <form th:action="@{/account/signin}" method="post">
+                    
+	                <div th:if="${param.error}">
+			            <div class="alert alert-danger">
+			                사용자ID 또는 비밀번호를 확인해 주세요.
+			            </div>
+			        </div>
+                        <span id="b">이메일 주소</span><br>
+                        <div >
+                            <input type="email" name="username" id="email" class="input form-control" onkeyup='email_func()' placeholder="이메일 주소를 입력해주세요"><br>
+                        </div>
+                        <div id='email_error' class="result"></div>
+                        <span id="b">비밀번호</span><br>
+                        <div>
+                            <input type="password" id="pwd" name="password" class="input form-control" placeholder="비밀번호를 입력해주세요"><br>
+                        </div>
+                        <input type="submit" value="로그인">
+                    </form>
+                </div>
+                <div class="footer">
+                    <span style="margin: 0 0;">아직 텀블캣 계정이 없으신가요? <a th:href="@{/account/signup}">회원가입</a></span><br>
+                    <span style="margin: 0 0;">혹시 비밀번호를 잊으셨나요? <a th:href="@{/account/findpwd}">비밀번호 재설정</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content">
+	<div class="setting_account_a">
+		<div th:replace="menu :: menuFragment"></div>
+		<div class="no2">
+			<hr>
+			<a th:href="@{/account/setaccountForm}">변경</a>
+		</div>	
+		<div class="no3">
+			<div>
+				<p>이메일: </p>					
+				<p>비밀번호: </p>
+				<p>연락처: </p> 
+			<div>
+	     </div>	
+	</div>
+</div>
+</html>

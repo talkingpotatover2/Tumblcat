@@ -1,0 +1,26 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content">
+	<div class="setting_notice_a">
+	<div th:replace="menu :: menuFragment"></div>
+		<div class="no2">
+			<hr>
+			<a th:href="@{/account/setnoticeForm}">변경</a>
+		</div>	
+		<div class="no3">
+			<label><b>메세지</b>
+			<ul>
+			<input type="checkbox" name="message" value="message" checked="checked" disabled="disabled"> 
+			새 메세지 알림을 받습니다
+			</label>
+			</ul>
+		  </div>
+		  <div class="no4">
+			  <label><b>프로젝트업데이트</b>
+			  <ul>
+			  <input type="checkbox" name="projecteup" value="projecteup" checked="checked" disabled="disabled"> 
+			  새 프로젝트업데이트 알림을 받습니다</label>
+			  </ul>
+		  </div>			
+	</div>
+</div>
+</html>

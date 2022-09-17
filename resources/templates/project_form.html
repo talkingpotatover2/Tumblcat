@@ -1,0 +1,147 @@
+<head>
+    <link rel="stylesheet" href="/css/project_form.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+
+<div layout:fragment="content">
+    <div class="logo">
+        <a style="text-decoration: none;" th:href="@{/project/list}" ><span style="font-size: 50px;
+                                                    font-family: 'Ms Madi';
+                                                    padding-left: 50px;
+                                                    
+                                                    color: black;">tumblcat</span></a>
+    </div>
+    <div id="sw">
+        <div class="section-title">
+            <div class="container">
+                <div class="title">프로젝트 기획</div>
+            </div>
+        </div>
+       
+        
+        <div class="container">
+        
+        <form  th:object="${projectForm}" method="post" enctype="multipart/form-data">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>    
+            <div class="alerting" role="alert" th:if="${#fields.hasAnyErrors()}">
+                <div th:each="err : ${#fields.allErrors()}" th:text="${err}" />
+            
+            
+            </div>
+            <table>
+                <tr>
+                    <td class="td1">
+                        프로젝트 카테고리 <b><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+                          </svg></b>
+                        <div class="td1-text">프로젝트 성격과 가장 일치하는 카테고리를 선택해주세요.<br>적합하지 않을 경우 운영자에 의해 조정될 수 있습니다.</div>
+                        
+                    </td>
+                    <td class="td2">
+                        <select name="pCate"  id="">
+                            <option disabled="disabled" selected="selected">프로젝트 카테고리를 선택하세요.</option>
+                            <option value="웹툰리소스">웹툰 리소스</option>
+                            <option value="반려동물">반려동물</option>
+                            <option value="주얼리">주얼리</option>
+                            <option value="음악">음악</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        프로젝트 제목 <b><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+                          </svg></b>
+                        <div class="td1-text">프로젝트의 주제, 창작물의 특징이 드러나는 멋진 제목을 붙여주세요.</div>
+                    </td>
+                    <td class="td2"> 
+                        <input name="pName" th:field=*{pName} type="text">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        프로젝트 소개 <b><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+                          </svg></b>
+                        <div class="td1-text">후원자 분들이 프로젝트를 빠르게 이해할 수 있도록
+                            명확하고 간략하게 소개해주세요.</div>
+                    </td>
+                    <td class="td2"> 
+                        <textarea name="pDesc" th:field=*{pDesc} id="" cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+                <div th:if="${#strings.isEmpty(pId)}">
+                <tr>
+                    <td class="td1">
+                        대표 이미지 <b><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+                          </svg></b>
+                        <div class="td1-text">후원자들이 프로젝트의 내용을 쉽게 파악하고 좋은 인상을 받을 수 있도록 적합한 이미지를 1개만 등록해 주세요.</div>
+                    </td>
+                    <td class="td2"> 
+                        <input multiple type="file" name="file" accept="image/*">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        이미지 설명 
+                        <div class="td1-text">이미지에 대한 간단한 설명을 적어 주세요.</div>
+                    </td>
+                    <td class="td2"> 
+                        <textarea name="imgDesc" th:field=*{imgDesc} cols="30" rows="10"></textarea>
+                    </td>
+                </tr>
+                </div>
+                <tr>
+                    <td class="td1">
+                        목표금액 <b><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+                          </svg></b>
+                        <div class="td1-text">프로젝트를 완수하기 위해 필요한 금액을 설정해주세요.</div>
+                    </td>
+                    <td class="td2"> 
+                        <input name="pGoal" th:field="*{pGoal}" type="number">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        펀딩 날짜 <b><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+                          </svg></b>
+                        <div class="td1-text">설정한 일시가 되면 펀딩이 자동 시작됩니다. 펀딩 시작 전까지 날짜를 변경할 수 있고, 즉시 펀딩을 시작할 수도 있습니다.</div>
+                    </td>
+                    <td class="td2"> 
+                        <div>
+                            시작일 <input name="pSdate" th:field=*{pSdate} type="date">
+                        </div>
+                        <div>
+                            종료일 <input name="pEdate" th:field=*{pEdate} type="date">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="td1">
+                        창작자 소개 <b><svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-asterisk" viewBox="0 0 16 16">
+                            <path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/>
+                          </svg></b>
+                        <div class="td1-text">2~3문장으로 창작자님의 이력과 간단한 소개를 써주세요.</div>
+                    </td>
+                    <td class="td2"> 
+                        <textarea name="pCreator" th:field=*{pCreator} id="" cols="30" rows="5"></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td><button class="btn" type="submit">프로젝트 올리기</button></td>
+                </tr>
+
+            </table>
+        </form>
+        </div>
+    </div>
+
+    </div>
+    
+</html>

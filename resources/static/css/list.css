@@ -1,0 +1,308 @@
+/* project_list */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+#hj {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+#hj .boxcontainer *{
+	margin:0;
+	padding:0;
+}
+
+#hj .boxcontainer .alert-count{
+	font-size: 13px;
+	margin: 15px 0 20px;
+}
+
+#hj .boxcontainer .carousel-indicators {
+	margin:0 auto;
+}
+#hj .subtitle{
+	margin: 20px 0;
+	padding:20px 0 5px 15px;
+	border-top:1px solid rgb(235, 235, 235);
+	
+}
+
+#hj .subtitle h3{
+	font-weight: bold;
+}
+#hj .subcontainer{
+	padding: 0 15px;
+	margin-bottom: 10px;
+}
+
+#hj .adimg {
+	margin:30px 0;
+}
+
+#hj .subcontainer #projectimgcontainer{
+	margin:0;
+	padding:0;
+	height:250px;
+	overflow:hidden;
+	width:100%;
+}
+#hj .subcontainer #projectimg{
+	margin-bottom: 10px;
+}
+#hj .subcontainer .projectimg :hover{
+	transition: 1s;
+	margin-bottom: 10px;
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+}
+
+#hj .subcontainer .projectimg{
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transition: all 0.5s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+}
+
+#hj .subcontainer .pname{
+	color:black;
+	margin:5px 0;
+	font-weight: bold;
+}
+
+#hj .subcontainer .pgoal{
+	margin:15px 0;
+	color:red;
+	font-weight: bold;
+}
+
+#hj .subcontainer .startdate{
+	margin-bottom:10px;
+	font-weight: bold;
+	color:black;
+}
+
+#hj .notirequest{
+	width:100%;
+	text-align:center;
+	color:black;
+	text-decoration:none;
+	font-size: 13px;
+	border:1px solid rgb(192, 192, 192);
+	padding: 5px;
+}
+
+/* 주목 할만한 프로젝트*/
+
+#hj .plusItem .subtitle{
+	margin: 20px 0;
+	padding:20px 0 5px 15px;
+	border-top:1px solid rgb(235, 235, 235);
+	
+}
+
+#hj .plusItem .subtitle h3{
+	font-weight: bold;
+}
+#hj .plusItem .subcontainer{
+	padding: 0 15px 25px 15px;
+	margin-bottom: 10px;
+}
+
+#hj .plusItem .adimg {
+	margin:30px 0;
+}
+
+#hj .plusItem #projectimgcontainer{
+	margin:0;
+	padding:0;
+	height:180px;
+	overflow:hidden;
+	width:100%;
+}
+#hj .plusItem #projectimg{
+	margin-bottom: 10px;
+}
+#hj .plusItem .projectimg :hover{
+	transition: 1s;
+	margin-bottom: 10px;
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+}
+
+#hj .plusItem .projectimg{
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transition: all 0.5s ease-in-out;   /* 부드러운 모션을 위해 추가*/
+}
+
+#hj .plusItem .pname{
+	color:black;
+	margin:5px 0;
+	font-weight: bold;
+}
+
+#hj .plusItem .pgoal{
+	margin:15px 0;
+	color:red;
+	font-weight: bold;
+}
+
+#hj .plusItem .subcontainer .startdate{
+	margin-bottom:10px;
+	font-weight: bold;
+	color:black;
+}
+
+#hj .plusItem .notirequest{
+	width:100%;
+	text-align:center;
+	color:black;
+	text-decoration:none;
+	font-size: 13px;
+	border:1px solid rgb(192, 192, 192);
+	padding: 5px;
+}
+
+/* 인기순 */
+#hj .boxcontainer #likeitem{
+	padding-left: 70px;
+}
+#hj .boxcontainer #likeitem #likeitemtitle{
+	margin-bottom: 30px;
+}
+#hj .boxcontainer #likeitem #likeitemtitle h1{
+	font-weight: bold;
+}
+#hj .boxcontainer #likeitem #likeitemtitle .datetime{
+	font-size: 12px;
+	color:rgb(148, 148, 148);
+}
+
+#hj .boxcontainer #likeitem .likecontents{
+	margin:7px 0;
+}
+
+#hj .boxcontainer #likeitem .likecontents .count{
+	color:black;
+	padding-top: 5px;
+	padding-left: 20px;
+}
+
+#hj .boxcontainer #likeitem .likecontents .pCate{
+	color: rgb(146, 146, 146);
+}
+
+#hj .boxcontainer #likeitem .likecontents .pName{
+	color:black;
+	margin:5px 0;
+	font-weight: bold;
+}
+
+#hj .boxcontainer #likeitem .likecontents .pGoal{
+	margin:15px 0 0 0;
+	color:red;
+	font-weight: bold;
+}
+ #hj #likeitem .likecontents #projectimgcontainer{
+	margin:0;
+	padding:0;
+	height:100px;
+	overflow:hidden;
+	width:120px;
+}
+#hj #likeitem .likecontents #projectimg{
+	margin-bottom: 10px;
+	padding:0;
+	margin:0;
+}
+#hj #likeitem .likecontents .projectimg :hover{
+	transition: 1s;
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+}
+
+#hj #likeitem .likecontents .projectimg{
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	-ms-transform: scale(1);
+	-o-transform: scale(1);
+	transition: all 0.5s ease-in-out;  
+}
+
+/* notice */
+#hj .notice h1{
+	margin:10px 0;
+	border-bottom: 5px solid rgb(247, 83, 83);
+	width: 55px;
+	text-align: center;
+}
+
+#hj .notice .no3{
+	border:1px solid rgb(218, 218, 218);
+	border-radius: 1%;
+	margin: 20px 0;
+	
+}
+
+#hj .notice .no3 :hover{
+	background-color: rgb(218, 233, 254);
+}
+
+#hj .notice .no3 .href{
+	text-decoration: none;
+}
+
+#hj .notice .no3 .deletenotiy{
+	float:right;
+	margin:15px 10px 50px 0;
+	padding: 0 20px;
+	font-size: 15px;
+}
+
+#hj .notice .no3container{
+	width:100%;
+}
+
+#hj .notice .span{
+	width:15%;
+}
+#hj .notice .span .img{ 
+	margin:10px 0;
+	padding:0;
+	text-align: center; 
+	}
+
+#hj .notice .span img{
+	width:80px; 
+	height:80px;
+	border-radius: 10px;
+}
+
+#hj .notice .no3-desc span{
+	font-size: 17px;
+	color:rgb(48, 48, 48);
+}
+
+#hj .notice .no3-date{
+	color:lightslategray;
+	font-size: 13px;
+	padding-bottom: 10px;
+}
+
+#hj .boxcontainer #likeitem .likecontents .count{
+	color:black;
+	padding-top: 5px;
+	padding-left: 15px;
+	padding-right: -15px;
+}

@@ -1,0 +1,56 @@
+<div th:fragment="headerFragment" id="sy_header_part">
+	<header class="col-lg-12 justify-content-center Bigheader">
+	<!-- 로고와 검색창 시작 -->
+		<div class="col-lg-12 justify-content-center" >
+			<div class="logo col-lg-6">
+				<a th:href="@{/project/list}" ><span style="font-size: 50px;">tumblcat</span></a>
+			</div>
+			<form class="navbar-form navbar-right col-lg-4" method="get" th:action="@{|/project/list?${kw}|}">
+                <div class="form-group">
+                    <input style="width:240px" type="text" class="form-control" name = "kw" placeholder="검색어를 입력해주세요.">
+                </div>
+                <button type="submit" class="btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+					  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+					</svg>
+				</button>
+            </form>
+		</div>
+		<!-- 로고와 검색창 끝 -->
+		<!-- 카테고리 홈 공개예정 프로잭트올리기 시작 -->
+		<div>
+			<div class="logo menu" style="height:200px">
+				<ul class="main1" style="margin-left: 20px">
+					<li class="sy0" style="border: none;"><a href="#"><b style="font-size: 20px;"><span style="font-size: 20px;">≡</span> 카테고리</b></a>
+						<ul class="main2">
+							<li><a th:href="@{/project/list}" ><img src="/img/all.jpg" />전체</a>				
+							<li><a th:href="|@{/project/list/웹툰리소스}|"><img src="/img/webtoon.jpg" />웹툰 리소스</a></li>
+							<li><a th:href="|@{/project/list/반려동물}|"><img src="/img/pet.jpg" />반려동물</a></li>
+							<li><a th:href="|@{/project/list/주얼리}|"><img src="/img/jewelry.jpg" />주얼리</a></li>
+							<li><a th:href="|@{/project/list/음악}|"><img src="/img/music.jpg" />음악</a></li>
+						</ul>
+					</li>
+					<li class="sy1 home"><a th:href="@{/project/list}">홈</a></li>
+					<li class="sy1"><a th:href="@{/project/prelaunching}">공개예정</a></li>				
+					<li class="sy1 term"><a th:href="@{/project/create}">프로젝트 올리기</a></li>
+					<li class="sy1"><a sec:authorize="isAnonymous()" th:href="@{/account/signin}">로그인</a></li>
+					<li class="sy1"><a sec:authorize="isAnonymous()" th:href="@{/account/signup}">회원가입</a></li>
+					<li class="sy1"><a sec:authorize="isAuthenticated()" th:href="@{/account/signout}">로그아웃</a></li>
+					
+					<li class="sy0 mypage" style="border: none;" sec:authorize="isAuthenticated()"><a href="#"><img src="/img/mypage.jpg"/></a>
+						<ul class="main2">
+							<li><a th:href="@{|/account/profile/${#authentication.getPrincipal().getUsername()}|}">프로필</a></li>
+							<!-- <li><a th:href="@{/invest/pledged}">후원현황</a></li> -->
+							<li><a th:href="@{/project/invest/pledged}">후원현황</a></li>
+							<li><a th:href="@{/account/notice}">알림</a></li>
+							<li><a th:href="@{|/account/myproject/${#authentication.getPrincipal().getUsername()}|}">내가만든프로젝트</a></li>
+							<!-- <li><a th:href="@{/account/setaccount}">설정</a></li> -->
+							<li><a id="resign" th:href="@{|/account/leave/${#authentication.getPrincipal().getUsername()}|}" onclick="alert('정말로 탈퇴하시겠습니까?')">탈퇴하기</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>			
+		</div>
+		<!-- 카테고리 홈 공개예정 프로잭트올리기 끝 -->
+	</header>
+</div>

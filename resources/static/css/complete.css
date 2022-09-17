@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+
+#yj {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#yj #wrapper {
+	margin: 0 auto;
+}
+
+#yj header {
+	width: 100%;
+	height: 80px;
+	margin-top: 10px;
+	border-bottom: 1px solid lightgray;
+}
+
+#yj header a {
+	text-decoration-line: none;
+	color: black;
+	font-size: 50px;
+	font-family: 'Ms Madi', cursive;
+}
+
+#yj header #title {
+	margin-left: 5%;
+	font-size: 19px;
+}
+
+#yj span {
+	font-weight: bold;
+}
+
+#yj main {
+	text-align: center;
+}
+
+#yj .box {
+	display: inline-block;
+	width: 100%;
+	height: 450px;
+	margin-top: 130px;
+	text-align: center;
+	border-bottom: 1px solid lightgray;
+}
+
+#yj .box h1 span {
+	font-weight: bold;
+	color: rgb(247, 83, 83);
+}
+
+#yj .support{
+    width: 150px;
+	height: 50px;
+    background-color: rgb(247, 83, 83);
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    border:0;
+}
+
+#yj .support:hover{
+    background-color: rgb(247, 54, 54);
+}

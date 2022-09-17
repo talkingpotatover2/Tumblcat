@@ -1,0 +1,45 @@
+.setting_address_a a {
+	text-decoration-line: none;
+	color: black;
+	}
+	
+
+.setting_address_a ul {
+		list-style:none;
+}
+
+.setting_address_a li {
+		list-style-type: none;
+		float:left;
+		margin-right: 10px;
+	}
+
+	
+.setting_address_a .no1 {	
+		margin-bottom: 10px;
+		list-style: none;
+		float: left;
+     	margin-right: 5px;
+
+	}
+	
+.setting_address_a .no2 {	
+		padding-bottom: 30px;
+		clear: both;
+	}
+
+.setting_address_a .no3 {	
+		margin-top: 20px;
+		clear: both;
+		border: 1px solid gray;
+		height: 200px;
+		
+}
+
+.setting_address_a .inner_no2{
+			float: right;
+		  	cursor: pointer;
+		  	padding-right: 10px
+}
+
+	

@@ -1,0 +1,104 @@
+<html layout:decorate="~{layout}">
+	<div layout:fragment="content" id="wrapper">
+		<hr>
+		
+		<!-- main section -->
+		<div id="jh">
+			<main>
+			<br><br>
+				<p>프로필</p>
+				<br>
+				<div class="line">
+					<table>
+						<tr>
+							<td id="jh_td" width="500">프로필 사진</td>
+							<td>
+								<input type="button" value="변경" class="change">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div id="jh_box">
+									<img src="/img/cat.jpg">
+								</div>
+							</td>
+						</tr>
+					</table>
+					<br>
+				</div>
+				<br><br>
+				
+				<div class="line">
+					<table>
+						<tr>
+							<td id="jh_td" width="500">이름</td>
+							<td>
+								<input type="button" value="변경" class="change" id="name-change">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<span id="profile_ori_name" th:text="${user.aName}"></span>
+								<span id="profile_cha_name" style="display: none;">
+									<form th:action="@{|/account/profile/update/${user.aEmail}|}" method="get">
+										<input type="text" name="profile_name"  th:value="${user.aName}">
+										<br><br>
+										<input type="submit" value="저장">
+									</form>
+								</span>
+							</td>
+						</tr>
+					</table>
+					<br>
+				</div>
+				<br><br>
+				
+				<div class="line">
+					<table>
+						<tr>
+							<td id="jh_td" width="500">소개</td>
+							<td>
+								<input type="button" value="변경" class="change" id="desc-change">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<div id="profile_ori_desc">
+									<span id="jh_pf_desc" th:if="${#strings.isEmpty(user.aDesc)}">등록된 소개가 없습니다.</span>
+									<span th:if="${not #strings.isEmpty(user.aDesc)}" th:text="${user.aDesc}"></span>
+								</div>
+								<span id="profile_cha_desc" style="display: none;">
+									<form th:action="@{|/account/profile/update/${user.aEmail}|}" method="get">
+										<input type="text" name="profile_desc"  th:value="${user.aDesc}">
+										<br><br>
+										<input type="submit" value="저장">
+									</form>
+								</span>
+							</td>
+						</tr>
+					</table>
+					<br>
+					
+				</div>
+			</main>
+			
+			<!-- aside section -->
+			<br><br><br><br><br>
+			<aside>
+			<br><br>
+				<table>
+					<tr>
+						<td id="jh_td">
+							어떤 정보가 프로필에 공개되나요?
+						</td>
+					</tr>
+					<tr>
+						<td>
+							프로필 사진과, 이름, 소개글이 회원님의 프로필 페이지에서 공개됩니다.
+						</td>
+					</tr>
+				</table>
+			</aside>
+		</div>
+	</div>
+</html>

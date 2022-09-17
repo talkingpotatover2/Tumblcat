@@ -1,0 +1,30 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content">
+    <h1>{여기에 프로젝트 이름 표시} 선물 만들기</h1>
+    <form action="" method="POST" enctype="multipart/form-data">
+
+        <div>
+            선물 이름
+            <input type="text">
+        </div>
+
+        <div>
+            최소후원금액
+            <input type="number">
+        </div>
+        <div>
+            최대후원금액
+            <input type="number">
+        </div>
+
+        <div>
+            <button type="submit">추가</button>
+        </div>
+    </form>
+
+    <h2>선물 목록</h2>
+    <div>
+        {이름} : {최소후원금액}~{최대후원금액}
+    </div>
+</div>
+</html>

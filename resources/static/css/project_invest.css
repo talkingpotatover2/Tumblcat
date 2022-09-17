@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+#jh {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+body {
+	margin: 0;
+}
+
+#wrapper {
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.grey {
+	color: #4b4a4a;
+}
+
+header {
+	width: 100%;
+	height: 60px;
+	margin-top: 20px;
+	margin-left: 10%;
+}
+
+#icon{
+	text-decoration: none;
+	color:black;
+}
+
+#tb {
+	font-family: 'Ms Madi';
+	font-size: 50px;
+	font-weight: bold;
+	font-style: italic;
+}
+
+	/* m_content */
+#m_content {
+	width: 100%;
+	height: 180px;
+	margin-top: 10px;
+	margin-left: 5%;
+	line-height: 30px;
+}
+
+#m_content span {
+	margin-left: 10px;
+}
+
+#m_content img {
+	float: left;
+	width: 10%;
+}
+
+#sell {
+	font-size: 27px;
+	font-weight: bold;
+	padding-left: 20px;
+}
+
+#s_content .title{
+	font-size: 16px;
+	color: #4b4a4a;
+	font-weight: 700;
+	margin-bottom: 10px;
+}
+
+#jh_cate {
+	padding-left: 20px;
+}
+
+
+	/* s_content */
+#s_content {
+	float: left;
+	margin-left: 40px;
+	width: 720px;
+	height: 1000px;
+}
+
+
+
+#s_content table {
+	width: 700px;
+	border : 1px solid #e2dfdf;
+	border-radius: 2px;
+}
+
+#s_content table th {
+	
+	text-align: left;
+	padding: 10px 0 10px 14px;
+}
+
+#s_content table td {
+	padding: 10px 0 10px 10px;
+}
+
+#s_content img {
+	width: 100%;
+}
+
+	/* right-side */
+#right-side {
+	float: right;
+	width: 430px;
+}
+
+#right {
+	margin-right: 5%;
+	line-height: 24px;
+}
+
+#right-side table {
+	width: 400px;
+	height: 70px;
+	border: 1px solid #d2d0d0;
+	border-radius: 2px;
+}
+
+#right-side table th {
+	color: rgb(247, 54, 54);
+	text-align: left;
+	padding: 10px 0 10px 14px;
+}
+
+#right-side table td {
+	font-weight: bold;
+	padding-left: 10px;
+}
+
+#right-side .submit-btn {
+	position: relative;
+	color: white;
+	font-size: 15px;
+	background-color: rgb(247, 54, 54);
+	border: none;
+	font-weight: 700;
+	width: 400px;
+	height: 50px;
+	cursor: pointer;
+}
+
+#right-side .submit-btn:hover {
+	color: rgba(255,255,255,0.5);
+}
+
+		/* jh 추가 css */
+#jh header span {
+	font-weight: bold;
+}
+
+#jh main #jh_cate {
+	color: #666666;
+	font-size: 0.8rem;
+}
+
+#jh main span {
+	color: #282828;
+	font-size: 0.8rem;
+}
+
+#jh main #sell {
+	color: #282828;
+	font-size: 30px;
+}
+
+#jh #m_content {
+	width: 1100px;
+	height: 140px;
+}
+
+#jh section {
+	line-height: 2em;
+}
+
+#jh section table {
+	color: #666666;
+}
+
+#jh section table th {
+	width: 200px;
+	padding: 10px 0 10px 15px;
+	color: #282828;
+	font-size: 0.9rem;
+}
+
+#jh section table td {
+	font-size: 0.9rem;
+}
+
+#jh section input[type=text] {
+	width: 200px;
+	height: 25px;
+}
+
+#jh #jh_align {
+	vertical-align: top;
+}
+
+#jh textarea {
+	width: 200px;
+	height: 70px;
+}
+
+#jh section span {
+	font-size: 1.1rem;
+	font-weight: bold;
+	color: #282828;
+}
+
+#jh aside {
+	color: #858585;
+}
+
+#jh aside table td {
+	color: #282828;
+}
+
+#jh aside ul {
+	font-size: 11px;
+}
+
+#jh aside #jh_check {
+	cursor: pointer;
+}
+
+#jh .more {
+	display: block;
+}
+
+#jh .blind {
+	position: absolute;
+	overflow: hidden;
+	cursor: pointer;
+	font-family: 'NotoSansKR';
+}
+
+#jh .board {
+	position: absolute;
+	visibility: hidden;
+}
+
+
+
+
+
+
+
+

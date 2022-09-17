@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link href="/css/complete.css" rel="stylesheet" type="text/css">
+	 <!-- 합쳐지고 최소화된 최신 CSS --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    
+    <!-- 부가적인 테마 --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+    
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 --> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<body id="yj">
+	<div id="wrapper" class="">
+	
+		<!-- header section -->
+		<header>
+			<div id="title">
+				<a th:href="@{/project/list}" id="tb">tumblcat</a>
+				&nbsp;
+				<span>·&nbsp;&nbsp;프로젝트 후원하기</span>
+			</div>
+		</header>
+		
+		<!-- main section -->
+		<main>
+			<div class="box">
+				<h1><span>후원이</span></h1>
+				<h1>완료되었습니다!</h1>
+				<br /><br /><br /><br />
+				<input type="button" value="메인페이지" class="support" onclick="location.href='/project/list'">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="button" value="프로젝트" class="support" onclick="location.href='/project/invest/pledged'">
+			</div>
+		</main>
+	</div>
+</body>
+</html>

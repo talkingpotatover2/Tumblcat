@@ -1,0 +1,86 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container">
+<div id="hj" class="row">
+	<!-- 큰 틀 -->
+	<div class=" justify-content-center col-lg-12 boxcontainer">
+		
+		<div class="notice">
+			<br><br>
+			 <div style="font-size:35px"><strong>알림</strong></div>	<br><br>	 
+			 <div  th:if="${#lists.size(project) != 0}" class="no3">
+			 	<div th:each="project : ${project}">
+					<a class="href" th:href="@{|/project/detail/${project.pId}|}">
+						<table class="no3container">
+							<tr>
+								<td rowspan="3" class="span"><div class="img"><img th:src="|/uploadfile/${project.ImgIdR.imgOriName}|" ></img></td>
+								<td>					
+									<div class="no3-desc">
+										<span>알림신청하신 <b>[[${project.pName}]]</b> 프로젝트가 공개 되었습니다.<span>
+									</div>
+								</td>
+								<td rowspan="2" class="deletenotiy"><a th:href="@{|/account/notice/remove/${project.pId}|}">삭제</a></td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td><td>&nbsp;</td>
+							</tr>
+							<tr>
+								<td class="no3-date">1일 전</td>
+							</tr>
+						</table>
+					</a>
+			 	</div>
+			 </div>
+			 
+			<div class="no3">
+			<div>
+				<a class="href" th:href="@{/project/list}">
+					<table class="no3container">
+						<tr>
+							<td rowspan="3" class="span"><div class="img"><img src="/img/cat.jpg"/ ></div></td>
+							<td>					
+								<div class="no3-desc">
+									알림신청하신 <b>우가우가</b> 프로젝트가 공개 되었습니다.
+								</div>
+							</td>
+							<td rowspan="2" class="deletenotiy"><a href="#">삭제</a></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td><td>&nbsp;</td>
+						</tr>
+						<tr>
+							
+							<td class="no3-date">1일 전</td>
+						</tr>
+					</table>
+				</a>
+				</div>
+				<div>
+				<a class="href" th:href="@{/project/list}">
+					<table class="no3container">
+						<tr>
+							<td rowspan="3" class="span"><div class="img"><img src="/img/cat.jpg"/ ></div></td>
+							<td>					
+								<div class="no3-desc">
+									알림신청하신 <b>우가우가</b> 프로젝트가 공개 되었습니다.
+								</div>
+							</td>
+							<td rowspan="2" class="deletenotiy"><a href="#">삭제</a></td>
+						</tr>
+						<tr>
+							<td>&nbsp;</td><td>&nbsp;</td>
+						</tr>
+						<tr>
+							
+							<td class="no3-date">1일 전</td>
+						</tr>
+					</table>
+				</a>
+				</div>
+			 </div>
+			 
+		 
+	</div>
+</div>
+</div>
+</div>
+</html>

@@ -1,0 +1,40 @@
+a {
+	text-decoration-line: none;
+	color: black;
+	}
+	
+
+ul {
+		list-style:none;
+}
+
+li {
+		list-style-type: none;
+		float:left;
+		margin-right: 10px;
+	}
+
+	
+.no1 {	
+		margin-bottom: 10px;
+		list-style: none;
+		float: left;
+     	margin-right: 5px;
+
+	}
+	
+.no2 {	
+		margin-bottom: 20px;
+		clear: both;
+	}
+	
+.no3 {	
+		margin-bottom: 20px;
+		clear: both;
+}
+
+.no4 {	
+		margin-bottom: 20px;
+		clear: both;
+}
+	

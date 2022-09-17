@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+
+#sy_header_part * {
+    font-family: 'Noto Sans KR', sans-serif;
+    list-style: none;
+    z-index: 50;
+}
+
+#sy_header_part a{
+	text-decoration: none;
+  	color: black;
+}
+#sy_header_part .sy0{
+	height:50px;
+  background-color: white;
+}
+
+#sy_header_part .main2 li a {
+  background-color: white;
+}
+
+
+#sy_header_part .Bigheader{
+	margin-bottom:15px;
+
+}
+
+#sy_header_part .logo span{
+	font-family: 'Ms Madi', cursive;
+	font-weight: bold;
+}
+
+#sy_header_part .main2 img {
+	 max-width: 20px;
+ 	max-height: 20px;
+}
+
+#sy_header_part .main2 a {
+  text-decoration: none;
+  color: black;
+  font-size: 10px;
+}
+
+#sy_header_part .sy1{
+	font-size: 13px;
+	font-weight: bold;
+	width: 100px;
+}
+
+
+#sy_header_part .home{
+	font-size: 13px;
+	font-weight: bold;
+	width: 40px;
+}
+#sy_header_part .menu{
+	margin-right: 0;
+}
+#sy_header_part .term{
+	margin-right: 10%;
+}
+
+#sy_header_part .main1>li:hover {
+  border-bottom: 5px solid rgb(247, 83, 83);
+}
+/*
+#sy_header_part .menu{
+  position:relative; 
+  z-index: 99; 
+  background-color: white;
+  height: 50px;  
+}
+
+
+#sy_header_part [class*="main"] {
+	background-color: white;
+	border-radius: 5px 5px 5px 5px;
+}
+
+
+#sy_header_part [class*="main"] ul {
+  border-radius: 5px 5px 5px 5px;
+  border: 1px solid #57523E;
+}
+
+#sy_header_part .main1{
+  padding-left: 0px;
+  height: 100%;
+  width: 800px;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+
+#sy_header_part .main1>li {
+  float: left;
+  width: 13%;
+  line-height: 50px;
+  position: relative;
+}
+
+#sy_header_part .main1>li:hover .main2 {
+  left: 0;
+}
+
+#sy_header_part .main1>li a {
+  display: block;
+}
+
+#sy_header_part .main1>li a:hover {
+  font-weight: bold;
+}
+
+#sy_header_part .main2 {
+  width:110%;
+  position: absolute;
+  top: 50px;
+  left: -9999px;
+  width: 100%;
+  padding: 0px;
+}
+
+
+
+#sy_header_part .main2 li:hover {
+  border-left: 5px solid rgb(247, 83, 83);
+}
+
+#sy_header_part .main2>li {
+  position: relative;
+}
+
+#sy_header_part .main2>li:hover .main3 {
+  left: 100%;
+}
+
+#sy_header_part .main2>li a, .main3>li a {
+  border-radius: 10px;
+  margin: 10px;
+}
+
+*/
+
+

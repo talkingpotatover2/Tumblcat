@@ -1,0 +1,238 @@
+<html xmlns:th="http://www.thymeleaf.org" layout:decorate="~{layout}">
+<div layout:fragment="content">
+<div class="container">
+
+<div class="row justify-content-center mt-4">
+	 <div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+                <form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="검색어를 입력해주세요.">
+                    </div>
+                    <button type="submit" class="btn btn-default"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+					  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+					</svg></button>
+                </form>
+      </div>
+    <br>
+    <div class="col-lg-12">
+    	<div class="row">
+           <div class="col-md-9 form-group mt-3 mt-md-0">
+              <h5 style="font-weight:bold"><div></div></h5>
+           </div>
+           <div class="col-md-3 form-group mt-3 mt-md-0" align="right">
+              <select>
+              	<option>인기순</option>
+              	<option>최신순</option>
+              	<option>마감임박순</option>
+              	<option>달성률 높은순</option>
+              </select>
+           </div>
+        </div>
+    </div>
+    
+    <div class="col-lg-12">
+    	<div class="row">
+    	
+    	<div th:each="project : ${projectList}" class="col-md-3 form-group mt-3 mt-md-0 center" >
+              <img src="/img/tumble.png" width="250" height="250"/>
+              <div class="row col-md-12">
+              	<h6 th:text="${project.pCate}"></h6>
+                <h4 style="font-weight:bold" th:text="${project.pName}"></h4>
+                <span th:text="${project.pCreator}"></span>
+                <span th:text="${project.pCreator}"></span>
+                <br>
+              </div>
+              <div class="row col-md-8">
+               	<h5 style="display:inline-block">22%</h5>
+                <h6 style="display:inline-block" th:text="${project.pGoal}"></h6>
+              </div>
+              <div class="col-md-4" align="right">
+                <h6 style="display:inline-block">8일 남음</h6>
+              </div>
+              <div class="col-md-11" style="background-color:red"></div>
+           </div>
+           
+           
+           <div class="col-md-3 form-group mt-3 mt-md-0 center">
+              <img src="img/tumble.png" width="250" height="250"/>
+              <div class="row col-md-12">
+              	<h6>주얼리 | 작-소</h6>
+                <h4 style="font-weight:bold">동글동글, 반짝반짝! 복숭아 도자 귀걸이</h4>
+                <span><a href="project_detail.html">동글동글 작고 귀여운, 복숭아 도자 귀걸이</a></span>
+                <br>
+              </div>
+              <div class="row col-md-8">
+               	<h5 style="display:inline-block">22%</h5>
+                <h6 style="display:inline-block">112,150원</h6>
+              </div>
+              <div class="col-md-4" align="right">
+                <h6 style="display:inline-block">8일 남음</h6>
+              </div>
+              <div class="col-md-11" style="background-color:red"></div>
+           </div>
+           <div class="col-md-3 form-group mt-3 mt-md-0 center">
+              <img src="img/tumble.png" width="250" height="250"/>
+              <div class="row col-md-12">
+              	<h6>주얼리 | 작-소</h6>
+                <h4 style="font-weight:bold">동글동글, 반짝반짝! 복숭아 도자 귀걸이</h4>
+                <span>동글동글 작고 귀여운, 복숭아 도자 귀걸이</span>
+                <br>
+              </div>
+              <div class="row col-md-8">
+               	<h5 style="display:inline-block">22%</h5>
+                <h6 style="display:inline-block">112,150원</h6>
+              </div>
+              <div class="col-md-4" align="right">
+                <h6 style="display:inline-block">8일 남음</h6>
+              </div>
+              <div class="col-md-11" style="background-color:red"></div>
+           </div>
+           <div class="col-md-3 form-group mt-3 mt-md-0 center">
+              <img src="img/tumble.png" width="250" height="250"/>
+              <div class="row col-md-12">
+              	<h6>주얼리 | 작-소</h6>
+                <h4 style="font-weight:bold">동글동글, 반짝반짝! 복숭아 도자 귀걸이</h4>
+                <span>동글동글 작고 귀여운, 복숭아 도자 귀걸이</span>
+                <br>
+              </div>
+              <div class="row col-md-8">
+               	<h5 style="display:inline-block">22%</h5>
+                <h6 style="display:inline-block">112,150원</h6>
+              </div>
+              <div class="col-md-4" align="right">
+                <h6 style="display:inline-block">8일 남음</h6>
+              </div>
+              <div class="col-md-11" style="background-color:red"></div>
+           </div>
+           <div class="col-md-3 form-group mt-3 mt-md-0 center">
+              <img src="img/tumble.png" width="250" height="250"/>
+              <div class="row col-md-12">
+              	<h6>주얼리 | 작-소</h6>
+                <h4 style="font-weight:bold">동글동글, 반짝반짝! 복숭아 도자 귀걸이</h4>
+                <span>동글동글 작고 귀여운, 복숭아 도자 귀걸이</span>
+                <br>
+              </div>
+              <div class="row col-md-8">
+               	<h5 style="display:inline-block">22%</h5>
+                <h6 style="display:inline-block">112,150원</h6>
+              </div>
+              <div class="col-md-4" align="right">
+                <h6 style="display:inline-block">8일 남음</h6>
+              </div>
+              <div class="col-md-11" style="background-color:red"></div>
+           </div>
+           
+           
+           <div class="col-md-3 form-group mt-3 mt-md-0 center">
+              <img src="img/tumble.png" width="250" height="250"/>
+              <div class="row col-md-12">
+              	<h6>주얼리 | 작-소</h6>
+                <h4 style="font-weight:bold">동글동글, 반짝반짝! 복숭아 도자 귀걸이</h4>
+                <span>동글동글 작고 귀여운, 복숭아 도자 귀걸이</span>
+                <br>
+              </div>
+              <div class="row col-md-8">
+               	<h5 style="display:inline-block">22%  </h5>
+                <h6 style="display:inline-block">112,150원</h6>
+              </div>
+              <div class="col-md-4" align="right">
+                <h6 style="display:inline-block">8일 남음</h6>
+              </div>
+              <div class="col-md-11" style="background-color:red"></div>
+           </div>
+           <div class="col-md-3 form-group mt-3 mt-md-0 center">
+              <img src="img/tumble.png" width="250" height="250"/>
+              <div class="row col-md-12">
+              	<h6>주얼리 | 작-소</h6>
+                <h4 style="font-weight:bold">동글동글, 반짝반짝! 복숭아 도자 귀걸이</h4>
+                <span>동글동글 작고 귀여운, 복숭아 도자 귀걸이</span>
+                <br>
+              </div>
+              <div class="row col-md-8">
+               	<h5 style="display:inline-block">22%  </h5>
+                <h6 style="display:inline-block">112,150원</h6>
+              </div>
+              <div class="col-md-4" align="right">
+                <h6 style="display:inline-block">8일 남음</h6>
+              </div>
+              <div class="col-md-11" style="background-color:red"></div>
+           </div>
+           <div class="col-md-3 form-group mt-3 mt-md-0 center">
+              <img src="img/tumble.png" width="250" height="250"/>
+              <div class="row col-md-12">
+              	<h6>주얼리 | 작-소</h6>
+                <h4 style="font-weight:bold">동글동글, 반짝반짝! 복숭아 도자 귀걸이</h4>
+                <span>동글동글 작고 귀여운, 복숭아 도자 귀걸이</span>
+                <br>
+              </div>
+              <div class="row col-md-8">
+               	<h5 style="display:inline-block">22%  </h5>
+                <h6 style="display:inline-block">112,150원</h6>
+              </div>
+              <div class="col-md-4" align="right">
+                <h6 style="display:inline-block">8일 남음</h6>
+              </div>
+              <div class="col-md-11" style="background-color:red"></div>
+           </div>
+           <div class="col-md-3 form-group mt-3 mt-md-0 center">
+              <img src="img/tumble.png" width="250" height="250"/>
+              <div class="row col-md-12">
+              	<h6>주얼리 | 작-소</h6>
+                <h4 style="font-weight:bold">동글동글, 반짝반짝! 복숭아 도자 귀걸이</h4>
+                <span>동글동글 작고 귀여운, 복숭아 도자 귀걸이</span>
+                <br>
+              </div>
+              <div class="row col-md-8">
+               	<h5 style="display:inline-block">22%  </h5>
+                <h6 style="display:inline-block">112,150원</h6>
+              </div>
+              <div class="col-md-4" align="right">
+                <h6 style="display:inline-block">8일 남음</h6>
+              </div>
+              <div class="col-md-11" style="background-color:red"></div>
+           </div>
+        </div>
+        
+        
+        <hr>
+        <h4 style="font-weight:bold">공개예정 프로젝트</h4>
+        <div class="row">
+        	<div class="col-md-3 form-group mt-3 mt-md-0 center">
+              <img src="img/tumble2.png" width="250" height="250"/>
+              <div class="row col-md-12">
+              	<h6>주얼리 | 작-소</h6>
+                <h4 style="font-weight:bold">시를 태우는 고요한 향, 인센스 페이퍼 포그</h4>
+                <h5>1,787명이 알림신청 중</h5>
+              </div>
+           </div>
+           <div class="col-md-3 form-group mt-3 mt-md-0 center">
+              <img src="img/tumble2.png" width="250" height="250"/>
+              <div class="row col-md-12">
+              	<h6>주얼리 | 작-소</h6>
+                <h4 style="font-weight:bold">시를 태우는 고요한 향, 인센스 페이퍼 포그</h4>
+                <h5>1,787명이 알림신청 중</h5>
+              </div>
+           </div>
+           <div class="col-md-3 form-group mt-3 mt-md-0 center">
+              <img src="img/tumble2.png" width="250" height="250"/>
+              <div class="row col-md-12">
+              	<h6>주얼리 | 작-소</h6>
+                <h4 style="font-weight:bold">시를 태우는 고요한 향, 인센스 페이퍼 포그</h4>
+                <h5>1,787명이 알림신청 중</h5>
+              </div>
+           </div>
+           <div class="col-md-3 form-group mt-3 mt-md-0 center">
+              <img src="img/tumble2.png" width="250" height="250"/>
+              <div class="row col-md-12">
+              	<h6>주얼리 | 작-소</h6>
+                <h4 style="font-weight:bold">시를 태우는 고요한 향, 인센스 페이퍼 포그</h4>
+                <h5>1,787명이 알림신청 중</h5>
+              </div>
+           </div>
+        </div>
+    </div>
+    
+</div>
+</div>
+</div>
+</html>

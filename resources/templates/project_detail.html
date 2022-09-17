@@ -1,0 +1,381 @@
+<html layout:decorate="~{layout}" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="/css/project_detail.css">
+</head>
+
+<!-- content container 시작 -->
+<div layout:fragment="content" class="container">
+
+<!-- sw 시작 -->
+<div id="sw">
+
+<!-- row justify-content-center -->
+<div class="row justify-content-center">
+
+  <hr style="margin:0; padding:0">
+
+
+	<!-- 메인 col-lg-12 -->
+	<div class="col-lg-12">
+
+			<!-- 1. 이미지 + 후원 버튼 시작 -->
+    	<div class="row">
+      	<div class="col-md-12 form-group">
+
+					
+            
+					<!-- 카테고리 -->  
+						<div class="cate" style="font-weight:bold" >
+              	<a th:href="@{|/project/list/${project?.pCate}|}" th:text="${project?.pCate}=='웹툰리소스'?'웹툰 리소스':${project?.pCate}"></a>
+						</div>
+           </div><br>
+
+           <!-- 프로젝트 제목 -->
+					 <div class="title" style="text-align:center; font-weight:bold"
+           		th:text="${project.pName}"
+           ></div>
+           
+
+        
+
+
+		
+			<img class="col-lg-7 col-md-12 col-sm-12" th:src="|/uploadfile/${project.ImgIdR.imgOriName}|">
+		
+	   <div class="col-lg-4 col-md-12 col-sm-12 offset-lg-1 desc">
+		
+			<!-- 프로젝트 수정/삭제 버튼 -->
+
+			<div class="cd">
+				<a th:href="@{|/project/modify/${project.pId}|}"            
+						sec:authorize="isAuthenticated()"
+						th:if="${project.account != null and #authentication.getPrincipal().getUsername() == project.account.aEmail}">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+							<path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+						</svg>&nbsp; 프로젝트 수정하기
+				</a>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="javascript:void(0);" th:data-uri="@{|/project/delete/${project.pId}|}"
+						sec:authorize="isAuthenticated()"
+						class="delete"
+						th:if="${project.account != null and #authentication.getPrincipal().getUsername() == project.account.aEmail}">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
+							<path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"/>
+						</svg>&nbsp; 
+				프로젝트 삭제하기
+				</a>
+			</div>
+
+			<div class="lttitle">모인금액</div>
+			<div class="ltdesc" style="display:inline-block" th:text="|${#strings.defaultString(#numbers.formatInteger(#aggregates.sum(investorList.![inPled]),3,'COMMA'),'0')}|"></div><span style="font-size:13px">&nbsp;원</span>
+			<div class="lttitle">남은시간</div>
+			<div class="ltdesc" style="display:inline-block" th:text="${end}"></div><span style="font-size:13px">&nbsp;일</span>
+			<div class="lttitle">후원자</div>
+			<div class="ltdesc" style="display:inline-block" th:text="|${#lists.size(investorList)}|"></div><span style="font-size:13px">&nbsp;명</span>
+			<hr>
+			<table class="indesc">
+				<tr>
+					<td><div style="display:inline-block; font-size: 14px; font-weight: 600;">목표금액</div></td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td>
+						<span style="font-size: 14px;" th:text="|${#numbers.formatInteger(project.pGoal,3,'COMMA')}원|"></span>
+					</td>
+				</tr>
+				<tr>
+					<td><div style="display:inline-block; font-size: 14px; font-weight: 600;">펀딩 기간</div></td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td>
+						<span style="font-size:14px" th:text="${project.pSdate}"></span> ~ <span style="font-size:14px" th:text="${project.pEdate}"></span>
+						&nbsp;&nbsp;
+						<div class="dateleft" style="display:inline-block" th:text="|${end}일 남음|">
+					</td>
+				</tr>
+				<tr>
+					<td><div style="display:inline-block; font-size: 14px; font-weight: 600;">결제</div></td>
+					<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td><span style="font-size:14px" th:text="|목표금액 달성시 ${payDate}에 결제 진행|"></span></td>
+				</tr>
+       		</table>
+			
+			<div class="row btn-wrapper">
+
+				<!-- 좋아요 버튼 + 개수 -->
+
+						<span class="likebox"><a href="javascript:void(0);" class="recommend btn"
+							th:data-uri="@{|/project/like/${project.pId}|}">
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+								<path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+								</svg><br>
+							<span th:text="${#lists.size(project.liker)}"></span>
+						</a></span>
+
+					
+
+				<!-- 후원하기 -->
+
+						<a role="button" href="#후원하기" class="support btn">이 프로젝트 후원하기</a>
+
+					
+
+
+
+			</div>
+			
+			
+			
+			
+	   </div>
+	
+    </div> <!-- 1. 이미지 + 후원 버튼 끝 -->
+    <br><br><br>
+
+		<!-- 2. 텍스트 + 선물 부분 시작 -->
+    <div class="col-lg-12 col-sm-12">
+    	<div class="row">
+			
+				<!-- 프로젝트 계획 + 업데이트 내비게이션 바 -->
+    		<div class="firstnav">
+		                <ul class="nav navbar-nav d-flex flex-row">
+		                    <li class="active">
+		                        <a href="#">프로젝트 계획</a>
+		                    </li>
+		                    <li>
+		                        <a th:href="@{|/project/update/${project.pId}|}">업데이트</a>
+		                    </li>
+		                </ul>
+		  	</div> <!-- 프로젝트 계획 + 업데이트 내비게이션 바 끝-->
+
+			<hr>
+
+			
+			<div class="row">
+
+				<!-- 프로젝트 소개 내비게이션 바 -->
+				<div class="col-lg-12 col-sm-12">
+					<div class="secondnav">
+						<ul class="nav navbar-nav d-flex flex-row">
+							<li class="active">
+								<a href="#소개">소개</a>
+							</li>
+							<li>
+								<a href="#예산">예산</a>
+							</li>
+							<li>
+								<a href="#일정">일정</a>
+							</li>
+							<li>
+								<a href="#팀소개">팀 소개</a>
+							</li>
+							<li>
+								<a href="#신뢰와안전">신뢰와 안전</a>
+							</li>
+						</ul>
+					</div>
+				</div> <!-- 프로젝트 소개 내비게이션 바 끝 -->
+		    
+			<div class="row">
+				<div class="second-wrapper col-lg-8 col-sm-12" style="padding-right:80px">
+					<div clas="second-content">
+						<div class="seconddesc"><h4 id="소개">| &nbsp;프로젝트 소개</h4></div><br>
+						<div  class="secondtext">
+							<div th:text="${project.pDesc}"></div>
+							<br>
+							<div class="col-lg-12 col-lg-12 col-sm-12 imgandimgDesc">
+								<img th:src="|/uploadfile/${project.ImgIdR.imgOriName}|" />
+								<div class="imgdesc"  th:text="${project.ImgIdR.imgDesc}"></div>
+							</div>
+						</div>		
+						<hr>
+		
+						<div class="seconddesc"><h4 id="예산">| &nbsp;프로젝트 예산</h4></div><br>
+						<div class="secondtext">
+							목표 금액이 사용될 지출 항목을 업데이트로 안내드립니다.
+							<br>
+						<ul>
+							<li>목표 금액 : <span th:text="|${#numbers.formatInteger(project.pGoal,3,'COMMA')}원|"></span></li>
+							<li>인건비</li>
+							<li>배송비</li>
+							<li>재료비</li>
+							<li>패키징</li>
+						</ul>
+						</div>
+						
+		
+						<hr>
+
+						
+		
+						<div class="seconddesc"><h4 id="일정">| &nbsp;프로젝트 일정</h4></div><br>
+						<div class="secondtext"><ul>
+							<li><span style="font-size:14px" th:text="${project.pSdate}"></span> ~ <span style="font-size:14px" th:text="${project.pEdate}"></span></li>
+							<li>디자인, 모델링 및 시제품 제작</li>
+							<li><span style="font-size:14px" th:text="${project.pSdate}"></span> : 펀딩 시작일</li>
+							<li><span style="font-size:14px" th:text="${project.pEdate}"></span> : 펀딩 종료일</li>
+							<li>제품 제작 시작 </li>
+							<li>후가공 처리 및 포장 작업</li>
+							<li>제품 예상 전달일 : 업데이트를 통해 안내드립니다.</li>
+						</ul></div>
+						
+		
+						<hr>
+		
+						<div class="seconddesc"><h4 id="팀소개">| &nbsp;프로젝트 팀 소개</h4></div><br>
+						<div class="secondtext"><div style="text-align:center" th:text="${project.pCreator}">
+						</div></div>
+						
+		
+						<hr>
+		
+						<div class="seconddesc"><h4 id="신뢰와안전">| &nbsp;신뢰와 안전</h4></div><br>
+						<div class="secondtext">
+							<h3><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-airplane-engines" viewBox="0 0 16 16">
+								<path d="M8 0c-.787 0-1.292.592-1.572 1.151A4.347 4.347 0 0 0 6 3v3.691l-2 1V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.191l-1.17.585A1.5 1.5 0 0 0 0 10.618V12a.5.5 0 0 0 .582.493l1.631-.272.313.937a.5.5 0 0 0 .948 0l.405-1.214 2.21-.369.375 2.253-1.318 1.318A.5.5 0 0 0 5.5 16h5a.5.5 0 0 0 .354-.854l-1.318-1.318.375-2.253 2.21.369.405 1.214a.5.5 0 0 0 .948 0l.313-.937 1.63.272A.5.5 0 0 0 16 12v-1.382a1.5 1.5 0 0 0-.83-1.342L14 8.691V7.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v.191l-2-1V3c0-.568-.14-1.271-.428-1.849C9.292.591 8.787 0 8 0ZM7 3c0-.432.11-.979.322-1.401C7.542 1.159 7.787 1 8 1c.213 0 .458.158.678.599C8.889 2.02 9 2.569 9 3v4a.5.5 0 0 0 .276.447l5.448 2.724a.5.5 0 0 1 .276.447v.792l-5.418-.903a.5.5 0 0 0-.575.41l-.5 3a.5.5 0 0 0 .14.437l.646.646H6.707l.647-.646a.5.5 0 0 0 .14-.436l-.5-3a.5.5 0 0 0-.576-.411L1 11.41v-.792a.5.5 0 0 1 .276-.447l5.448-2.724A.5.5 0 0 0 7 7V3Z"/>
+							</svg>&nbsp;&nbsp;후원은 구매가 아닌 창의적인 계획에 자금을 지원하는 일입니다.</h3>
+							<br>
+							전자상거래법상 통신판매는 소비자의 청약 전 규격, 제조연월일 등 구체적인 상품정보가 제공 가능한 것을 대상으로 합니다. 따라서 텀블벅에서의 후원은 통신판매에 해당하지 않고, 전자상거래법 및 소비자보호규정(수령 후 7일 내 청약철회 등)이 적용되지 않습니다.
+							<br><br>
+							<h3><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
+								<path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+								<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+							</svg>&nbsp;&nbsp;프로젝트는 계획과 달리 진행될 수 있습니다.</h3>
+							<br>
+							예상을 뛰어넘는 멋진 결과가 나올 수 있지만 진행 과정에서 계획이 지연, 변경되거나 무산될 수도 있습니다. 본 프로젝트를 완수할 책임과 권리는 창작자에게 있습니다.
+						</div>
+						
+					</div>
+				</div>
+				
+				<!-- side -->
+				<div class="col-lg-4 col-sm-12">
+			
+				
+					<div class="creatorbox">
+						<h4><b><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+							<path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+						  </svg> &nbsp;창작자 소개<b></h4>
+						<div class="creator" th:text="|${project.account.aName} 작가님|"></div>
+						<div class="creatordesc" th:text="${project.pCreator}"></div>
+						<button type="submit" class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-heart" viewBox="0 0 16 16">
+							<path fill-rule="evenodd" d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l3.235 1.94a2.76 2.76 0 0 0-.233 1.027L1 5.384v5.721l3.453-2.124c.146.277.329.556.55.835l-3.97 2.443A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741l-3.968-2.442c.22-.28.403-.56.55-.836L15 11.105V5.383l-3.002 1.801a2.76 2.76 0 0 0-.233-1.026L15 4.217V4a1 1 0 0 0-1-1H2Zm6 2.993c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+						  </svg> &nbsp;창작자에게 문의하기</button>
+
+							<!-- 모달 폼 -->
+							<div>
+								<dialog id="myMsgDialog">
+								<p>창작자에게 문의하세요</p>
+								<br>
+								<div id="modal-email" th:text="${project.account.aEmail}"></div>
+								<br>
+								<textarea placeholder="문의내용을 적어주세요." required="required"></textarea>
+								<br>
+								<input type="button" id="mButton" onclick="closeMsg()" value="확인">
+								</dialog>
+							</div>
+
+
+					</div> <!-- creatorbox 끝 -->
+
+
+					<div class="reward-wrapper">
+						<h4 id="후원하기"><b>선물 선택</b></h4>
+
+						<ul>
+							<li class="col-lg-12" th:each="reward : ${project.rewardList}">
+								
+									<a th:href="@{|/project/invest/${reward.rwId}|}">
+										<div class="reward">
+											<h2 th:text="|${#numbers.formatInteger(reward.rwMin,3,'COMMA')}원&nbsp;+|"></h2>
+											<br>
+											<h5 th:text="${reward.rwName}"></h5>
+											<h5 th:text="${reward.rwDesc}"></h5>
+										</div>
+									</a>
+								
+								
+								<form sec:authorize="isAuthenticated()" th:action="@{|/project/reward/delete/${reward.rwId}|}" method="post">
+									<input class="delete-reward" th:if="${project.account !=null and #authentication.getPrincipal().getUsername() == project.account.aEmail}" type="submit" value="▲ 이 선물 삭제하기">
+								</form>
+								<br>
+							</li>
+						</ul>
+
+					</div> <!-- reward-wrapper 끝 -->
+				
+					<!-- 선물 등록 폼 -->
+					<div class="row">
+				
+						<form sec:authorize="isAuthenticated()" th:action="@{|/project/reward/create/${project.pId}|}" method="post">
+								<div th:if="${project.account !=null and #authentication.getPrincipal().getUsername() == project.account.aEmail}" class="col-lg-12 create-reward" >
+									<h4><b><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+										<path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+										</svg> &nbsp;선물 등록</b></h4> 
+									<div class="label">*창작자에게만 보이는 양식입니다.</div>
+									<br><br>
+									<table style="width:100%">
+										<tr>
+											<td class="td1">선물 이름</td>
+											<td class="td2"><input th:if="${project.account !=null and #authentication.getPrincipal().getUsername() == project.account.aEmail}" type="text" name="rwName" id="rwName"></td>
+										</tr>
+										
+										<tr>
+											<td class="td1">최소 후원금액</td>
+											<td class="td2"><input th:if="${project.account !=null and #authentication.getPrincipal().getUsername() == project.account.aEmail}" type="number" name="rwMin" id="rwMin"></td>
+										</tr>
+										<tr>
+											<td class="td1">최대 후원금액</td>
+											<td class="td2"><input th:if="${project.account !=null and #authentication.getPrincipal().getUsername() == project.account.aEmail}" type="number" name="rwMax" id="rwMax"></td>
+										</tr>
+										<tr>
+											<td class="td1">선물 소개</td>
+											<td class="td2"> <textarea th:if="${project.account !=null and #authentication.getPrincipal().getUsername() == project.account.aEmail}" name="rwDesc" id="rwDesc"></textarea></td>
+										</tr>
+
+
+									</table>
+									<input class="reward-btn" th:if="${project.account !=null and #authentication.getPrincipal().getUsername() == project.account.aEmail}" type="submit" value="+ 추가">
+								
+									
+								</div>
+							</form>
+					</div> <!-- 선물 등록 폼 끝 -->
+					
+			
+				</div>
+	
+				
+			
+	    		
+	    		
+	    		
+	    		<br>
+	    	</div>
+			
+
+    	</div>
+    </div>
+
+		</div> <!-- 2. 텍스트 + 선물 부분 끝 -->
+	</div> <!-- 메인 col-lg-12 끝 -->
+</div> <!-- row justify-content-center 끝 -->
+</div> <!-- sw 끝 -->
+</div> <!-- content container 끝 -->
+<script layout:fragment="script" type='text/javascript'>
+const delete_elements = document.getElementsByClassName("delete");
+Array.from(delete_elements).forEach(function(element) {
+    element.addEventListener('click', function() {
+        if(confirm("정말로 삭제하시겠습니까?")) {
+            location.href = this.dataset.uri;
+        };
+    });
+});
+
+const recommend_elements = document.getElementsByClassName("recommend");
+Array.from(recommend_elements).forEach(function(element) {
+    element.addEventListener('click', function() {
+        if(confirm("좋아요를 누르시겠습니까?")) {
+            location.href = this.dataset.uri;
+        };
+    });
+});
+</script>
+</html>

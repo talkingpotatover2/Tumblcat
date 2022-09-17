@@ -1,0 +1,19 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content">
+	<div th:replace="menu :: menuFragment"></div>
+	<div class="no2">
+	<hr>
+		<form action="" name="frm">
+			<p>이메일</p><br>
+			<input type="text" id="email"/><br>
+			<p>비밀번호</P><br>
+			<input type="password" name="current_password" placeholder="현재 비밀번호" required><br>
+			<input type="password" name="new_password" placeholder="새 비밀번호" required><br>
+			<input type="password" name="new_password_confirm" placeholder="새 비밀번호 확인" required><br>
+			<p>연락처</p><br> 
+			<input type="text" id="addnumber"/><br>
+		</form>
+		<input type = "submit" name = "submit" value = "등록완료" />	
+	  </div>	
+</div>
+</html>

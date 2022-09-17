@@ -1,0 +1,177 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content" class="container">
+<head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</head>
+<div id="hj" class="row">
+	<br><br>
+	<!-- 큰 틀 -->
+	<div class="justify-content-center col-lg-12 boxcontainer">
+		<div class="justify-content-center col-lg-8 plusItem">
+        <!-- 시작 (collapse 사진) -->
+        <div id="carousel-example-generic" class="carousel slide">
+           <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+            </ol> 
+
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="/img/collapse3.jpg" alt="f">
+                </div>
+                <div class="item">
+                    <img src="/img/collapse4.jpg" alt="f">
+                </div>
+                <div class="item">
+                    <img src="/img/collapse5.jpg" alt="f">
+                </div>
+                <div class="item">
+                    <img src="/img/collapse1.jpeg" alt="f">
+                </div>
+                <div class="item">
+                    <img src="/img/collapse2.jpg" alt="f">
+                </div>
+            </div>
+        </div>
+        <div>
+        	<div class="col-md-12 alert-count"><span style="font-weight:bold;color:red" th:text="${#lists.size(projectList) + #lists.size(createdList)}"></span>개의 프로젝트가 있습니다.</div>      
+        </div>
+        <content th:if="${#lists.size(projectList) != 0}" >
+			<div class="col-md-12 subtitle"><h2>주목할 만한 프로젝트</h2></div>
+			<div th:each="project : ${projectList}" class="col-md-3 form-group mt-3 mt-md-0 center subcontainer">
+				<a th:href="@{|/project/detail/${project.pId}|}">
+					<div id="projectimgcontainer">
+						<div class="projectimg"><img id="projectimg" th:src="|/uploadfile/${project.ImgIdR.imgOriName}|" width="100%" height="180"/></div>
+					</div>
+					<br>
+					<div class="row col-md-12">
+						<h5 style="color: rgb(146, 146, 146);">
+							[[${project.pCate} == '웹툰리소스' ? '웹툰 리소스' : ${project.pCate}]]&nbsp;&nbsp;|&nbsp;&nbsp;[[${project.account.aName}]]
+						</h5>
+						<h3 class="pname" th:text="${project.pName}"></h3>
+						<br>
+					</div>
+					<div class="row col-md-12">
+						<div style="border-bottom: 2px solid red ;width:100%"></div>
+					</div>
+				</a>
+			</div>
+		</content>
+		</div>
+		<div class="justify-content-center col-lg-4">
+			<div id="likeitem">
+				 <div id="likeitemtitle">
+						<h1>인기 프로젝트</h1>
+						<p class="datetime" th:text="|${#calendars.format(#calendars.createNow(), 'yyyy.MM.dd HH:mm')} 기준|"></p>
+				 </div>
+				 <div th:if="${#lists.size(likeitemList) != 0}" th:each="likeitem, loop: ${likeitemList}" class="col-md-12 likecontents">
+						<a th:href="@{|/project/detail/${likeitem.pId}|}">
+							 <div class="row col-md-4 center" id="projectimgcontainer">
+									<div class="projectimg"><img id="projectimg" th:src="|/uploadfile/${likeitem.ImgIdR.imgOriName}|" width="120" height="100"/></div>
+							 </div>
+							 <div class="row col-md-2 center count">
+									<h3><b th:text="${loop.count}"><b><h3>
+							 </div>
+							 <div class="row col-md-5 center">
+									<h5 class="col-sm-12 center pCate">
+										 [[${likeitem.pCate} == '웹툰리소스' ? '웹툰 리소스' : ${likeitem.pCate}]]&nbsp;&nbsp;|&nbsp;&nbsp;[[${likeitem.account.aName}]]
+									</h5>
+									<div class="col-sm-12 center">
+										 <h3 class="pName" th:text="${likeitem.pName}"></h3>
+									</div>
+							 </div>
+						</a>
+				 </div>
+			</div>
+	 </div>
+		<hr>
+
+		
+		<div class="col-md-12 center adimg">
+			<img src="/img/list_ad3.png" width="100%" height="200"/>
+		</div>
+		
+		<content th:if="${#lists.size(gooditem) != 0}">
+			<div class="col-md-12 subtitle"><h2><img class="subtitle-img"src="/img/creatlife.avif" width="100%" height="250" />&nbsp;&nbsp;&nbsp;일상을 편리하게! 생활꿀템</h2></div>
+			<div th:each="gooditem : ${gooditem}" class="col-md-3 form-group mt-3 mt-md-0 center subcontainer">
+				<a th:href="@{|/project/detail/${gooditem.pId}|}">
+				<div id="projectimgcontainer">
+					<div class="projectimg"><img id="projectimg" th:src="|/uploadfile/${gooditem.ImgIdR.imgOriName}|"/></div>
+				</div>
+					<br>
+					<div class="row col-md-12">
+						<h5 style="color: rgb(146, 146, 146);">
+							[[${gooditem.pCate} == '웹툰리소스' ? '웹툰 리소스' : ${gooditem.pCate}]]&nbsp;&nbsp;|&nbsp;&nbsp;[[${gooditem.account.aName}]]
+						</h5>
+						<h3 class="pname" th:text="${gooditem.pName}"></h3>
+						<br>
+					</div>
+					<div class="row col-md-12">
+						<div style="border-bottom: 2px solid red ;width:100%"></div>
+					</div>
+				</a>
+			</div>
+		</content>
+		
+		<content th:if="${#lists.size(killingTime) != 0}">
+			<div class="col-md-12 subtitle"><h2>시간 때울 땐?</h2></div>
+			<div th:each="kt : ${killingTime}" class="col-md-3 form-group mt-3 mt-md-0 center subcontainer">
+				<a th:href="@{|/project/detail/${kt.pId}|}">
+					<div id="projectimgcontainer">
+						<div class="projectimg"><img id="projectimg" th:src="|/uploadfile/${kt.ImgIdR.imgOriName}|" width="100%" height="250"/></div>
+					</div>
+					<br>
+					<div class="row col-md-12">
+						<h5 style="color: rgb(146, 146, 146);">
+							[[${kt.pCate} == '웹툰리소스' ? '웹툰 리소스' : ${kt.pCate}]]&nbsp;&nbsp;|&nbsp;&nbsp;[[${kt.account.aName}]]
+						</h5>
+						<h3 class="pname" th:text="${kt.pName}"></h3>
+						<br>
+					</div>
+					<div class="row col-md-12">
+						<div style="border-bottom: 2px solid red ;width:100%"></div>
+					</div>
+				</a>
+			</div>
+		</content>
+		
+		<content th:if="${#lists.size(createdList) != 0}">
+			<div class="col-md-12 subtitle"><h2>공개예정 프로젝트</h2></div>
+			<div th:each="create : ${createdList}" class="col-md-3 form-group mt-3 mt-md-0 center subcontainer">
+				<a th:href="@{|/project/detail/${create.pId}?ref=prelaunch|}">
+					<div id="projectimgcontainer">
+						<div class="projectimg"><img th:src="|/uploadfile/${create.ImgIdR.imgOriName}|" width="100%" height="250"/></div>
+					</div>
+					<br>
+					<div class="row col-md-12">
+						<h5 style="color: rgb(146, 146, 146);">
+							[[${create.pCate} == '웹툰리소스' ? '웹툰 리소스' : ${create.pCate}]]&nbsp;&nbsp;|&nbsp;&nbsp;[[${create.account.aName}]]
+						</h5>
+						<h3 class="pname"style="font-weight:bold" th:text="${create.pName}"></h3>
+						<br> 
+					</div>
+					<div class="row col-md-12 pgoal">
+						<h4>[[${#lists.size(create.notifyRequest)}]]명이 알림신청 중</h4>
+					</div>  	
+				</a>
+        	</div>
+		</content>
+		
+		<div class="col-md-12 center adimg ">
+		<a th:href="@{/project/create}">
+			<img src="/img/list_ad1.png"  width="100%" height="180"/>
+		</a>
+		</div>
+		
+	</div>
+</div>
+<script>
+    $('.carousel').carousel({interval: 3000})
+</script>
+</div>
+</html>

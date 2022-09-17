@@ -1,0 +1,24 @@
+<html layout:decorate="~{layout}">
+<div layout:fragment="content">
+<div th:replace="menu :: menuFragment"></div>
+		<div class="no2">
+			<hr>
+		</div>	
+		<div class="no3">
+			<label><b>메세지</b>
+			<ul>
+			<input type="checkbox" name="message" value="message"> 
+			새 메세지 알림을 받습니다
+			</label>
+			</ul>
+		  </div>
+		  <div class="no4">
+			  <label><b>프로젝트업데이트</b>
+			  <ul>
+			  <input type="checkbox" name="projecteup" value="projecteup"> 
+			  새 프로젝트업데이트 알림을 받습니다</label>
+			  </ul>
+		  </div>
+			<input type="submit" value="저장">	
+	</div>
+</html>

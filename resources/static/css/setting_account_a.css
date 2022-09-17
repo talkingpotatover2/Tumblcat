@@ -1,0 +1,34 @@
+.setting_account_a a {
+	text-decoration-line: none;
+	color: black;
+	}
+	
+
+.setting_account_a ul {
+		list-style:none;
+}
+
+.setting_account_a li {
+		list-style-type: none;
+		float:left;
+		margin-right: 10px;
+	}
+
+	
+.setting_account_a .no1 {	
+		margin-bottom: 10px;
+		list-style: none;
+		float: left;
+     	margin-right: 5px;
+
+	}
+	
+.setting_account_a .no2 {	
+		margin-bottom: 20px;
+		clear: both;
+	}
+	
+.setting_account_a .no3 {	
+		margin-bottom: 20px;
+		clear: both;
+}

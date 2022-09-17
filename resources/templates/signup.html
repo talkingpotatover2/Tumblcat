@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/css/signup.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="/js/login.js"></script>
+</head>
+<body>
+    <div id="jh">
+        <div class="signup-title"><h2><a th:href="@{/project/list}" style="font-family:'Ms Madi'">tumblcat</a>&nbsp;&nbsp;&nbsp;</h2></div>
+        <div class="signup-form">
+            <div class="login-content">
+                <div class="header">
+                    <div class="title">
+                        회원가입하고<br>
+                    </div>
+                    <div>
+                        <b>세상에서 하나뿐인 <br>특별한 프로젝트를 발견해보세요</b>
+                    </div>
+                </div>
+                <div class="content">
+                    <form th:action="@{/account/signup}" th:object="${accountCreateForm}" method="POST">
+                    
+               
+                  <div class="alert alert-danger" role="alert" th:if="${#fields.hasAnyErrors()}">
+                     <div th:each="err : ${#fields.allErrors()}" th:text="${err}"></div>
+                  </div>
+​
+                        <span>이름</span><br>
+                        <div >
+                            <input type="text" id ="aName" th:field="*{aName}" class="input" placeholder="사용하실 이름을 입력해주세요"><br>
+                        </div>
+                        <span>이메일주소</span><br>
+                        <div >
+                            <input type="email" id="aEmail" th:field="*{aEmail1}" class="input" onkeyup='email_func()' placeholder="이메일 주소를 입력해주세요"><br>
+                            <div id='email_error' class="result"></div>
+                            <input type="email" id = "a_email_check"  th:field="*{aEmail2}" class="input" onkeyup='email_check_func()' placeholder="이메일 주소를 확인합니다"><br>
+                        </div>
+                        <div id='email_check_error' class="result"></div>
+                        <span>비밀번호</span><br>
+                        <div>
+                            <input type="password" id = "aPw"  th:field="*{aPw1}" class="input" placeholder="비밀번호를 입력해주세요"><br>
+                            <input type="password" id = "a_pwd_check"  th:field="*{aPw2}" class="input" onkeyup='pwd_check_func()' placeholder="비밀번호를 확인합니다"><br>
+                        </div>
+                        <div id="pwd_check_error" class="result"></div>
+                        <div>
+                            <div class="title_agree">
+                                <br>
+                                <input type="checkbox" id="check_all"><span><b>전체동의</b></span>
+                            </div>
+                            <div class="agree">
+                                <label><input type="checkbox" id="essential" name='mycheck'><span>만 14세 이상입니다. (필수)</span></label><br>
+                                <input type="checkbox" id="essential" name='mycheck'><span>텀블벅 이용 약관동의 (필수) 
+                                    <a target="_blank" id="jh_a1" href="https://help.tumblbug.com/hc/ko/articles/360051940533?v=1">내용보기</a></span><br>
+                                <input type="checkbox" id="essential" name='mycheck'><span>개인정보 수집 및 이용 동의 (필수)
+                                    <a target="_blank" id="jh_a2" href="https://help.tumblbug.com/hc/ko/articles/7766423598745">내용보기</a></span><br>
+                                <input type="checkbox" name='mycheck'><span>개인정보 제 3자 제공 동의 (선택)
+                                    <a target="_blank" id="jh_a3" href="https://help.tumblbug.com/hc/ko/articles/7779446714521">내용보기</a></span><br>
+                                <input type="checkbox" name='mycheck'><span>마케팅 정보 수신 동의 (선택)</span><br>
+                            </div>
+                        </div>
+                        <input type="submit" value="회원가입" name="submit">
+                    </form>
+                </div>
+                <br>
+                <div class="jh_foot" style="text-align:center">
+                    <span style="margin: 0 0;">이미 텀블캣 계정이 있으신가요?<br>
+                        <a th:href="@{/account/signin}">기존 계정으로 로그인하기</a>
+                    </span><br>
+                </div>
+            </div>
+            <br>
+            <pre>© 2022 Tumblcat Project.</pre>
+        </div>
+    </div>
+</body>
+</html>

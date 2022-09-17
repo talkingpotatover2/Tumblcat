@@ -1,0 +1,40 @@
+.setting_notice_a a {
+	text-decoration-line: none;
+	color: black;
+	}
+	
+
+.setting_notice_a ul {
+		list-style:none;
+}
+
+.setting_notice_a li {
+		list-style-type: none;
+		float:left;
+		margin-right: 10px;
+	}
+
+	
+.setting_notice_a .no1 {	
+		margin-bottom: 10px;
+		list-style: none;
+		float: left;
+     	margin-right: 5px;
+
+	}
+	
+.setting_notice_a .no2 {	
+		margin-bottom: 20px;
+		clear: both;
+	}
+	
+.setting_notice_a .no3 {	
+		margin-bottom: 20px;
+		clear: both;
+}
+
+.setting_notice_a .no4 {	
+		margin-bottom: 20px;
+		clear: both;
+}
+	

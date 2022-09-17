@@ -1,0 +1,31 @@
+.notice a {
+	text-decoration-line: none;
+	color: black;
+	}
+	
+
+.notice ul {
+		list-style:none;
+}
+
+.notice li {
+		list-style-type: none;
+		float:left;
+		margin-right: 10px;
+	}
+
+	
+.notice .no1 {	
+		margin-bottom: 10px;
+		list-style: none;
+		float: left;
+     	margin-right: 5px;
+
+	}
+	
+
+.notice .close {
+		  float: right;
+		  cursor: pointer;
+		  padding-right: 10px
+		}

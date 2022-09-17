@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
+
+
+#sy_sinupss .header {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#sy_sinupss .title {
+	font-size: 20px;
+}
+
+#sy_sinupss .logo {
+	font-size : 50px;
+	text-decoration: none;
+	color: black;
+	font-family: 'Ms Madi', cursive;
+}
+
+#sy_sinupss {
+    height: 100%;
+    background-image: url(../img/login_mail.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment:fixed;
+    
+}
+
+#sy_sinupss  .loginsuccess-form{
+    height: 100%;
+    margin:auto 0;
+    width: 50%;
+}
+
+#sy_sinupss  .loginsuccess-content{
+	padding-top: 150px;
+    width: 300px;
+    margin:10% auto;
+}
+
+
+#sy_sinupss  .loginsuccess-content .title{
+	padding-top: 30px;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid red;
+    
+}
+
+#sy_sinupss  .loginsuccess-content .header{
+    margin-bottom: 10%;
+}
+
+#sy_sinupss  .input{
+    /*padding:0 10px;*/
+    border: 1px solid black;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+}
+
+#sy_sinupss  input{
+    margin-top: 5px;
+    border:none;
+    border-radius: 0;
+}
+
+#sy_sinupss  input[type=button]{
+    padding: 5px 10px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 100%;
+    font-size: 15px;
+    background-color: rgb(249, 56, 56);
+    color: white;
+}
+
+#sy_sinupss  input:hover[type=button] {
+    background-color: rgb(248, 107, 107);
+}

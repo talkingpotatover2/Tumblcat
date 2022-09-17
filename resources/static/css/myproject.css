@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+#yj {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#yj h1 {
+	font-weight: bold;
+	font-size: 35px;
+}
+
+#yj #list {
+	margin-top: 40px;
+	font-weight: bold;
+}
+
+#yj ul li{
+	list-style-type : none;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+	margin: 15px 0;
+}
+
+#yj ul li a {
+	text-decoration: none;
+	color: black;
+}
+
+#yj ul li a h4 {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+#yj ul li h6 {
+	font-size: 15px;
+	font-weight: normal;
+}
+
+#yj div li {
+	padding: 20px;
+}
+
+#yj .col-md-10{
+	margin: 3% 0;
+}
+
+#yj a h4, #yj h6 {
+	padding-left: 30px;
+}
+
+#yj img {
+	margin-top: 20px;
+}
+

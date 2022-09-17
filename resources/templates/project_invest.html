@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="/css/project_invest.css" rel="stylesheet" type="text/css">
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+    
+    <!-- 더보기 스크립트 -->
+    <script>
+    $(document).ready(function(){
+    	  $('.more').click(function(){
+    	    if($('.more').hasClass('more')){
+    	       	$('.more').addClass('close').removeClass('more');
+    	       	$('.board').css('position', 'relative');
+    	       	$('.board').css('visibility', 'visible');
+    	    }else if($('.close').hasClass('close')){
+    	       	$('.close').addClass('more').removeClass('close');
+    	       	$('.board').css('position', 'absolute');
+    	       	$('.board').css('visibility', 'hidden');
+    	    }
+    	  });
+    	});
+    </script>
+    
+    <script>
+    	$(document).ready(function(){
+		
+		    $('#inPay').hide();   // 초깃값 설정
+				
+			$("input[name='inPay']").change(function(){
+				// 휴대폰 결제 선택 시.
+				if($("input[name='inPay']:checked").val() == '카드 및 계좌'){
+					$('#inPay').show();
+				}
+			});
+		});
+    </script>
+</head>
+<body>
+<div id="jh">
+	<header>
+		<div id="title">
+			<span id="tb"><a id="icon" th:href="@{/project/list}">tumblcat</a></span>
+			&nbsp;&nbsp;
+			<span class="grey">·&nbsp;&nbsp;프로젝트 후원하기</span>
+		</div>
+	</header>
+	<hr><br>
+	<div id="wrapper">
+		
+			<!-- header section -->
+			
+			
+			<!-- main section -->
+			<main id="m_content">
+				<div>
+					<img th:src="|/uploadfile/${reward.project?.ImgIdR.imgOriName}|">
+					<span id="jh_cate" th:text="${reward.project?.pCate}"></span>
+					<br />
+					<span id="sell" th:text=${reward.project?.pName}></span>
+					<br />
+				</div>
+			</main>
+			<br />
+			
+			<form th:action="@{|/project/invest/${reward.rwId}|}" method="POST" enctype="multipart/form-data">
+			<!-- section section -->
+			
+			<section id="s_content">
+				<div class="title">선물 정보</div>
+				<table>
+					<tr>
+						<th>선물 구성</th>
+						<td th:text=${reward?.rwName}></td>
+					</tr>
+					<tr>
+						<th>선물 금액</th>
+						<td th:text=|${#numbers.formatInteger(reward.rwMin,3,'COMMA')}원|></td>
+					</tr>
+				</table>
+				<br /><br />
+				
+				<div class="title">후원자 정보</div>
+				<table>
+					<tr>
+						<th>이메일</th>
+						<td sec:authorize="isAuthenticated()" th:text="|${#authentication.getPrincipal().getUsername()}|"></td>
+					</tr>
+					<tr>
+						<th>연락처</th>
+						<td><input type="text" name="inPhone"></td>
+					</tr>
+					<tr>
+						<th id="jh_align">주소</th>
+						<td><textarea name="inAdd"></textarea></td>
+					</tr>
+					<tr>
+						<td colspan="2">* 위 연락처와 이메일로 후원 관련 소식이 전달됩니다.<br />
+									* 연락처 및 이메일 변경은 설정 > 계정 설정에서 가능합니다.
+						</td>
+					</tr>
+				</table>
+				<br /><br />
+						
+				<div class="title">결제 수단</div>
+				<table>
+					<tr>
+						<td colspan="2"><input type="radio" name="inPay" value="카드 및 계좌"> 카드 및 계좌</td>
+					</tr>
+					<tr>
+						<td rowspan="2" width="100"><img src="/img/kb_card.png"></td>
+						<td>
+							<input type="text" name="inPay" id="inPay" style="width:300px;">
+						</td>
+					</tr>
+				</table>
+			</section>
+			
+			<!-- aside section -->
+			<br>
+			<aside id="right-side">
+				<div id="right">
+					<table>
+						<tr>
+							<th>최종 후원 금액</th>
+							<td th:text=|${#numbers.formatInteger(reward.rwMin,3,'COMMA')}원|></td>
+						</tr>
+					</table>
+					<span>프로젝트 성공시, 결제가 진행됩니다. 프로젝트가 무산되거나 중단된 경우, 결제는 자동으로 취소됩니다.</span>
+					<br /><br />
+					<input type="checkbox" id="jh_check">개인정보 제 3자 제공 동의
+					<br />
+					<input type="checkbox" id="jh_check">후원 유의사항 확인
+					<pre class="more">						<span class="blind">더보기</span></pre>
+					<div class="board">
+					<ul class="list">
+						<li>
+							<span>
+								후원은 구매가 아닌 창의적인 계획에 자금을 지원하는 일입니다.
+							</span><br>
+							텀블벅에서의 후원은 아직 실현되지 않은 프로젝트가 실현될 수 있도록 제작비를 후원하는 과정으로, 기존의 상품 또는 용역을 거래의 대상으로 하는 매매와는 차이가 있습니다. 따라서 전자상거래법상 청약철회 등의 규정이 적용되지 않습니다.
+						</li>
+						<li>
+							<span>
+								프로젝트는 계획과 달리 진행될 수 있습니다.
+							</span><br>
+							예상을 뛰어넘는 멋진 결과가 나올 수 있지만 진행 과정에서 계획이 지연, 변경되거나 무산될 수도 있습니다. 본 프로젝트를 완수할 책임과 권리는 창작자에게 있습니다.
+						</li>
+					</ul>
+					</div>
+					<br /><br />
+					<input type="submit" value="후원하기" class="submit-btn">
+				</div>
+			</aside>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html layout:decorate="~{layout}">
+<head>
+	<meta charset="UTF-8">
+	<link href="/css/myproject.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div layout:fragment="content" id="yj" class="container" sec:authorize="isAuthenticated()">
+		<div class="col-md-12">
+			<br><br>
+			<b><h1>내가 만든 프로젝트</h1></b>
+		</div>
+		    
+		    
+		<div sec:authorize="isAuthenticated()">
+			<h3 id="list" class="col-md-12" th:text="|작성 완료 ${#lists.size(myProjectList)}|"></h3>
+		    <ul th:each="project : ${myProjectList}">
+		    	<li class="col-md-12">
+			    	<div class="col-md-2">
+			    		<a th:href="@{|/project/detail/${project.pId}|}">
+			    			<img th:src="|/uploadfile/${project.ImgIdR.imgOriName}|" width="180" height="130"/>
+			    		</a>
+			    	</div>
+			    	<div class="col-md-10">
+			    		<a th:href="@{|/project/detail/${project.pId}|}"><h4 th:text="${project.pName}"></h4></a>
+			    		<h6 th:text="${project.pDesc}"></h6>
+			    	</div>
+		    	</li>
+		    </ul>
+		</div>
+	</div>
+</body>
+</html>
